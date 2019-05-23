@@ -7,7 +7,7 @@ import com.example.myapplication.database.Entities.TagEntity
 
 class TagRepository(private val tagDAO: TagDAO) {
 
-    val allLibros: LiveData<List<TagEntity>> = tagDAO.getTags()
+    val allTags: LiveData<List<TagEntity>> = tagDAO.getTags()
 
     @WorkerThread
     suspend fun insert(tag: TagEntity) {

@@ -7,7 +7,7 @@ import com.example.myapplication.database.Entities.AutorEntity
 
 class AutorRepository(private val autorDao: AutorDAO) {
 
-    val allLibros: LiveData<List<AutorEntity>> = autorDao.getAutores()
+    val allAutores: LiveData<List<AutorEntity>> = autorDao.getAutores()
 
     @WorkerThread
     suspend fun insert(autor: AutorEntity) {
