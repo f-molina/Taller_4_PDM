@@ -20,10 +20,12 @@ class LibroAdapter internal constructor(context: Context, val clickBoton: (Libro
          return ViewHolder(view)
      }
 
-     override fun getItemCount(): Int {
-         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-     }
+     override fun getItemCount() = libros.size
 
+    internal fun setBooks(books: List<LibroEntity>) {
+        this.libros = books
+        notifyDataSetChanged()
+    }
      override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(libros[position], clickBoton, clickListenerViewHolder)
 
      class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,7 +36,7 @@ class LibroAdapter internal constructor(context: Context, val clickBoton: (Libro
                  .into(Iv_book_portada)
              tvlibronombre.text = libroentity.titulo
 
-             setFavorite.setOnClickListener {
+             fav.setOnClickListener {
                  clickBoton(libroentity)
 
              }

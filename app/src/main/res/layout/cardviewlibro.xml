@@ -6,15 +6,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp">
-
+        >
     <RelativeLayout
             android:id="@+id/container_cardview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
         <ImageView
-                android:id="@+id/Iv_book_portada"
+                android:id="@+id/libroportada"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
@@ -24,30 +23,19 @@
                 android:id="@+id/tvlibronombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/Iv_book_portada"
-                android:layout_alignRight="@id/Iv_book_portada"
-                android:layout_alignBottom="@id/Iv_book_portada"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="#65000000"
                 android:gravity="end"
-                android:lines="1"
-                android:padding="8dp"
                 android:text="default"
                 android:textColor="#fff"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:layout_alignEnd="@id/libroportada"
+                android:layout_alignRight="@id/libroportada"
+                android:layout_alignBottom="@id/libroportada"/>
 
         <Button
-                android:id="@+id/setFavorite"
+                android:id="@+id/fav"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favoritear" />
-
-
-
-
+                android:text="Tageado" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
