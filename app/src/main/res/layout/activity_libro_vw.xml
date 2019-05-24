@@ -6,4 +6,81 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.LibroViewerActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+
+
+            <TextView
+                    android:id="@+id/titulotv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Titulo: "
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+            <TextView
+                    android:id="@+id/autortv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Autor: "
+                    android:layout_below="@+id/titulotv"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+            <TextView
+                    android:id="@+id/ediciontv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edicion: "
+                    android:layout_below="@+id/autortv"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+            <TextView
+                    android:id="@+id/editorialtv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editorial: "
+                    android:layout_below="@+id/ediciontv"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+            <TextView
+                    android:id="@+id/isbntv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="isbn: "
+                    android:layout_below="@+id/editorialtv"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+            <TextView
+                    android:id="@+id/resumentv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resumen: "
+                    android:layout_below="@+id/isbntv"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-light"
+            />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </FrameLayout>

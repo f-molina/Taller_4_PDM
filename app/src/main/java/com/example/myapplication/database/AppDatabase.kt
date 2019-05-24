@@ -1,7 +1,6 @@
 package com.example.myapplication.database
 
 import android.content.Context
-import androidx.room.CoroutinesRoom
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,7 +14,6 @@ import com.example.myapplication.database.Entities.TagEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.security.AccessControlContext
 
 @Database(entities = [LibroEntity::class, AutorEntity::class, TagEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

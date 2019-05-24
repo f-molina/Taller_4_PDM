@@ -33,7 +33,7 @@ class LibroAdapter internal constructor(context: Context, val clickBoton: (Libro
              Glide.with(itemView.context)
                  .load(libroentity.caratula)
                  .placeholder(R.drawable.ic_launcher_background)
-                 .into(Iv_book_portada)
+                 .into(libroportada)
              tvlibronombre.text = libroentity.titulo
 
              fav.setOnClickListener {
