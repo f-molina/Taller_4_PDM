@@ -10,8 +10,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "libro_table",
     foreignKeys = [
-        ForeignKey(entity = AutorEntity::class, parentColumns = ["id"], childColumns = ["autor"]),
-        ForeignKey(entity = Tag::class, parentColumns = ["id"], childColumns = ["tag"])
+        ForeignKey(entity = AutorEntity::class, parentColumns = ["id_autor"], childColumns = ["id_autores"]),
+        ForeignKey(entity = Tag::class, parentColumns = ["id_tag"], childColumns = ["id_tag"])
     ])
 data class LibroEntity(
     @PrimaryKey @ColumnInfo(name = "id_libro") val id_libro: String,
