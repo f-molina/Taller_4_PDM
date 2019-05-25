@@ -58,6 +58,10 @@ abstract class AppDatabase : RoomDatabase() {
 
         suspend fun LlenarDB(libroDAO: LibroDAO, autorDAO: AutorDAO, tagDAO: TagDAO) {
 
+            libroDAO.deleteAll()
+            autorDAO.deleteAll()
+            tagDAO.deleteAll()
+
             var autor = AutorEntity(1, "Danniela Renderos")
             autorDAO.insertAutor(autor)
             autor = AutorEntity(2, "Fatima Renderos")

@@ -23,7 +23,7 @@ import com.example.myapplication.database.AppDatabase
 import com.example.myapplication.fragments.MainContentFragment
 import com.example.myapplication.fragments.MainListFragment
 
-class MainActivity : AppCompatActivity(), MainListFragment.ClickedMovieListener  {
+class MainActivity : AppCompatActivity(), MainListFragment.ClickedMovieListener {
 
     private lateinit var mainFragment: MainListFragment
     private lateinit var mainContentFragment: MainContentFragment
@@ -39,17 +39,23 @@ class MainActivity : AppCompatActivity(), MainListFragment.ClickedMovieListener 
         initFragments()
     }
 
-    fun initFragments(){
+    fun initFragments() {
         mainFragment = MainListFragment()
 
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             resource = R.id.portrait_main_place_holder
+            changeFragment(resource, mainFragment)
+        }
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            resource = R.id.land_main_place_holder
+            changeFragment(resource, mainFragment)
         }
 
-        changeFragment(resource, mainFragment)
     }
 
-    private fun changeFragment(id: Int, frag: Fragment){ supportFragmentManager.beginTransaction().replace(id, frag).commit() }
+    private fun changeFragment(id: Int, frag: Fragment) {
+        supportFragmentManager.beginTransaction().replace(id, frag).commit()
+    }
 
     private fun showContent(id_placeholder: Int, movie: LibroEntity) {
         mainContentFragment = MainContentFragment.newInstance(movie)
@@ -58,5 +64,5 @@ class MainActivity : AppCompatActivity(), MainListFragment.ClickedMovieListener 
 
     override fun managePortraitItemClick(movie: LibroEntity) = showContent(R.id.portrait_main_place_holder, movie)
 
-    override fun managedLandscapeItemClick(movie: LibroEntity) = showContent(R.id.portrait_main_place_holder, movie)
+    override fun managedLandscapeItemClick(movie: LibroEntity) = showContent(R.id.land_main_place_holder, movie)
 }
