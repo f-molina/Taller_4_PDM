@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), MainListFragment.ClickedMovieListener 
     }
 
     private fun changeFragment(id: Int, frag: Fragment) {
-        supportFragmentManager.beginTransaction().replace(id, frag).commit()
+        supportFragmentManager.beginTransaction().replace(id, frag).addToBackStack(null).commit()
     }
 
     private fun showContent(id_placeholder: Int, movie: LibroEntity) {
