@@ -15,6 +15,9 @@ interface AutorDAO{
     @Query("SELECT * FROM autor_table")
     fun getAutores(): LiveData<List<AutorEntity>>
 
+    @Query("DELETE FROM autor_table")
+    fun deleteAll()
+
     //Terminar el buscar por ID
    /* @Query("SELECT * FROM autor_table ")
     fun getAutor(): AutorEntity

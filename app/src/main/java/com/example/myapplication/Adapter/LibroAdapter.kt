@@ -4,47 +4,40 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.database.Entities.LibroEntity
-import kotlinx.android.synthetic.main.cardviewlibro.view.*
+import kotlinx.android.synthetic.main.rv_item.view.*
 
-class LibroAdapter internal constructor(context: Context, val clickBoton: (LibroEntity) -> Unit, val clickListenerViewHolder: (LibroEntity)-> Unit): RecyclerView.Adapter<LibroAdapter.ViewHolder>() {
+class LibroAdapter(var movies: List<LibroEntity>, val clickListener: (LibroEntity) -> Unit) : RecyclerView.Adapter<LibroAdapter.ViewHolder>(){
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_item, parent, false)
+        return ViewHolder(view)
+    }
 
-     private var libros: List<LibroEntity> = emptyList()
+    override fun getItemCount(): Int = movies.size
 
-     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibroAdapter.ViewHolder {
-         val view = LayoutInflater.from(parent.context).inflate(R.layout.cardviewlibro, parent, false)
-         return ViewHolder(view)
-     }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(movies[position], clickListener)
 
-     override fun getItemCount() = libros.size
-
-    internal fun setBooks(books: List<LibroEntity>) {
-        this.libros = books
+    fun changeDataSet(newMovieList: List<LibroEntity>) {
+        movies = newMovieList
         notifyDataSetChanged()
     }
-     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(libros[position], clickBoton, clickListenerViewHolder)
 
-     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-         fun bind(libroentity: LibroEntity, clickBoton: (LibroEntity)->Unit, clickListenerViewHolder: (LibroEntity) -> Unit) = with(itemView){
-             Glide.with(itemView.context)
-                 .load(libroentity.caratula)
-                 .placeholder(R.drawable.ic_launcher_background)
-                 .into(libroportada)
-             tvlibronombre.text = libroentity.titulo
-
-             fav.setOnClickListener {
-                 clickBoton(libroentity)
-
-             }
-             this.setOnClickListener(){
-                 clickListenerViewHolder(libroentity)
-             }
-
-         }
-     }
-
- }
+    class ViewHolder(item: View): RecyclerView.ViewHolder(item){
+        fun bind(movie: LibroEntity, clickListener: (LibroEntity) -> Unit) = with(itemView){
+            Glide.with(itemView.context)
+                .load(movie.caratula)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(book_image_cv)
+            book_title_tv.text = movie.titulo
+            book_id_tv.text = movie.editorial
+            book_autor_tv.text = movie.isbn
+            book_plot_cv.text = movie.resumen
+            this.setOnClickListener { clickListener(movie) }
+        }
+    }
+}

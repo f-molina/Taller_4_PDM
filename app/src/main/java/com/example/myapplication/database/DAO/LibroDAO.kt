@@ -13,11 +13,16 @@ interface LibroDAO {
     @Insert
     suspend fun insertLibro(Libro: LibroEntity)
 
+    @Query("SELECT * FROM libro_table WHERE titulo LIKE :title")
+    fun getLibroByTitle(title: String): LiveData<List<LibroEntity>>
+
     @Query("SELECT * FROM libro_table")
     fun getLibros(): LiveData<List<LibroEntity>>
 
     @Query("SELECT * FROM libro_table WHERE favorito = 1 ")
     fun getFavs(): LiveData<List<LibroEntity>>
 
+    @Query("DELETE FROM libro_table")
+    fun deleteAll()
 
 }

@@ -11,26 +11,30 @@ import com.example.myapplication.database.AppDatabase
 import com.example.myapplication.database.DAO.AutorDAO
 import com.example.myapplication.database.DAO.LibroDAO
 import com.example.myapplication.database.DAO.TagDAO
+import com.example.myapplication.database.Entities.AutorEntity
 import com.example.myapplication.database.Entities.LibroEntity
+import com.example.myapplication.database.Entities.TagEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LibroViewModel(application: Application): AndroidViewModel(application) {
     private val repository: LibroRepository
-    private val repositoryAutor: AutorRepository
-    private val repositoryTag: TagRepository
     val allBooks: LiveData<List<LibroEntity>>
+
     init {
-        val booksDao: LibroDAO = AppDatabase.getDatabase(application, viewModelScope).libroDao()
-        val autorDao: AutorDAO = AppDatabase.getDatabase(application, viewModelScope).autorDao()
-        val tagDao: TagDAO = AppDatabase.getDatabase(application, viewModelScope).tagDao()
-        repository = LibroRepository(booksDao)
-        repositoryAutor = AutorRepository(autorDao)
-        repositoryTag = TagRepository(tagDao)
+        val booksDao = AppDatabase.getDatabase(application, viewModelScope).libroDao()
+        val autorDAO = AppDatabase.getDatabase(application, viewModelScope).autorDao()
+        val tagDao = AppDatabase.getDatabase(application, viewModelScope).tagDao()
+        repository = LibroRepository(booksDao, autorDAO, tagDao)
         allBooks = repository.allLibros
     }
 
-    fun insert(libroEntity: LibroEntity) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(libroEntity)
+    fun insert(libroEntity: LibroEntity, autorEntity: AutorEntity, tagEntity: TagEntity) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(libroEntity, autorEntity, tagEntity)
     }
+
+    fun getBookByTitle(name: String): LiveData<List<LibroEntity>> = repository.getBooksByTitle(name)
+
+    fun getAll():LiveData<List<LibroEntity>> = repository.getAllfromRoomDB()
+
 }

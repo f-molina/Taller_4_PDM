@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [LibroEntity::class, AutorEntity::class, TagEntity::class], version = 1, exportSchema = false)
+@Database(entities = [LibroEntity::class, AutorEntity::class, TagEntity::class], version = 8, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun libroDao(): LibroDAO
@@ -70,24 +70,22 @@ abstract class AppDatabase : RoomDatabase() {
 
 
             var libro = LibroEntity(
-                1, "La biblia", "caratula", 2, "La casa",
-                123, "Historia de Dios", 1, 10, 1
+                "1", "La biblia", "caratula", "La casa",
+                "123", "Historia de Dios", "1", "10", true
             )
             libroDAO.insertLibro(libro)
 
             libro = LibroEntity(
-                2, "Sherlock Holmes", "caratula", 1, "La casa",
-                1255, "Historia de detectives", 2, 1, 1
+                "2", "Sherlock Holmes", "caratula", "La casa",
+                "1255", "Historia de detectives", "2", "1", false
             )
             libroDAO.insertLibro(libro)
 
             libro = LibroEntity(
-                3, "GOT", "caratula", 1, "La casa",
-                1255, "Historia de guerra y dragones", 2, 3, 0
+                "3", "GOT", "caratula", "La casa",
+                "1224", "Historia de guerra y dragones", "4", "56", true
             )
             libroDAO.insertLibro(libro)
-
-
         }
     }
 }
