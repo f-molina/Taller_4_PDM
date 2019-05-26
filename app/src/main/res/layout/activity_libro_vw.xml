@@ -17,12 +17,24 @@
                 android:layout_height="match_parent"
         >
 
+            <TextView
+                    android:id="@+id/nametv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NADA"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-light"
+
+            />
+
 
             <TextView
                     android:id="@+id/titulotv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Titulo: "
+                    android:layout_below="@+id/nametv"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:fontFamily="sans-serif-light"

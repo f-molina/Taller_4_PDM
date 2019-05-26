@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [LibroEntity::class, AutorEntity::class, TagEntity::class], version = 9, exportSchema = false)
+@Database(entities = [LibroEntity::class, AutorEntity::class, TagEntity::class], version = 10, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun libroDao(): LibroDAO
@@ -57,10 +57,6 @@ abstract class AppDatabase : RoomDatabase() {
 
 
         suspend fun LlenarDB(libroDAO: LibroDAO, autorDAO: AutorDAO, tagDAO: TagDAO) {
-
-            libroDAO.deleteAll()
-            autorDAO.deleteAll()
-            tagDAO.deleteAll()
 
             var autor = AutorEntity(1, "Danniela Renderos")
             autorDAO.insertAutor(autor)

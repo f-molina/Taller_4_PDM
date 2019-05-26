@@ -38,4 +38,18 @@ class LibroAdapter(var libros: List<LibroEntity>, val clickListener: (LibroEntit
             this.setOnClickListener { clickListener(movie) }
         }
     }
+    /*fun init(book: joinedBook){
+        Glide.with(this)
+                .load(book.cover)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(Iv_book_cover)
+        tv_book_namae.text = book.title
+        tv_author_lastName.text=book.lastName_author
+        tv_author_name.text = book.name_author
+        tv_book_edicion.text = book.edition
+        tv_book_editorial.text = book.editorial
+        tv_book_isbn.text = book.isbn
+        tv_book_resumen.text = book.summary
+        tv_tag.text=book.tag
+    }*/
 }
