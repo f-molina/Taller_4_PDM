@@ -1,81 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="8dp"
-                                   app:cardCornerRadius="5dp"
-                                   app:cardElevation="10dp">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+
 
     <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        >
 
         <ImageView
-                android:id="@+id/book_image_cv"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
-
+            android:src="@drawable/ic_launcher_background"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/book_image"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"/>
         <TextView
-                android:id="@+id/book_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/book_image_cv"
-                android:layout_alignRight="@id/book_image_cv"
-                android:layout_alignBottom="@id/book_image_cv"
-                android:layout_margin="16dp"
-                android:background="#65000000"
-                android:gravity="end"
-                android:lines="1"
-                android:padding="8dp"
-                android:text="LOTR"
-                android:textColor="#fff"
-                android:textSize="25sp" />
-
+            android:id="@+id/book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/book_image"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="The lord of the rings"
+            />
         <TextView
-                android:id="@+id/book_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/book_image_cv"
-                android:layout_alignLeft="@id/book_image_cv"
-                android:layout_alignTop="@id/book_image_cv"
-                android:layout_margin="16dp"
-                android:background="#65000000"
-                android:gravity="end"
-                android:padding="8dp"
-                android:text="1.0"
-                android:textColor="#fff"
-                android:textSize="25sp" />
-
-        <LinearLayout
-                android:id="@+id/data_container_ll_cv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/book_image_cv"
-
-                android:orientation="vertical">
-
-            <TextView
-                    android:id="@+id/book_plot_cv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:text="Resumen" />
-
-            <TextView
-                    android:id="@+id/book_autor_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:gravity="end"
-                    android:text="Tolkien" />
-
-        </LinearLayout>
-
+            android:id="@+id/editorial_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/book_image"
+            android:layout_toRightOf="@id/book_image"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="20dp"
+            android:text="Editorial"
+            android:textSize="16sp"/>
+        <ImageView
+            android:id="@+id/fav_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite_border_black_24dp"
+            android:layout_toEndOf="@+id/editorial_tv"
+            android:layout_toRightOf="@id/editorial_tv"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="120dp"
+            />
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

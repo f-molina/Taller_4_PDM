@@ -42,11 +42,8 @@ class MainContentFragment: Fragment() {
             .into(view.app_bar_image_viewer)
 
         view.collapsingtoolbarviewer.title = data.titulo
-        view.resumen_viewer.text = data.resumen
-        view.autor_tv.text = data.editorial
-        view.actors_viewer.text = data.isbn
-        view.genre_viewer.text = data.editorial
-        view.released_viewer.text = data.editorial
-        view.app_bar_id_viewer.text = data.titulo
+        view.book_brief_detail.text = data.resumen
+        view.editorial_viewer.text = data.editorial
+        view.isb_viewer.text = data.isbn
     }
 }

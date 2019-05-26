@@ -19,13 +19,13 @@ import kotlinx.android.synthetic.main.books_list_fragment.view.*
 
 class MainListFragment: Fragment() {
 
-    private lateinit var movieViewModel: LibroViewModel
-    private lateinit var moviesAdapter: LibroAdapter
+    private lateinit var libroViewModel: LibroViewModel
+    private lateinit var libroAdapter: LibroAdapter
     var listenerTool : ClickedMovieListener? = null
 
     interface ClickedMovieListener{
-        fun managePortraitItemClick(movie: LibroEntity)
-        fun managedLandscapeItemClick(movie: LibroEntity)
+        fun managePortraitItemClick(libro: LibroEntity)
+        fun managedLandscapeItemClick(libro: LibroEntity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,12 +52,12 @@ class MainListFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.books_list_fragment, container, false)
 
-        movieViewModel = ViewModelProviders.of(this).get(LibroViewModel::class.java)
+        libroViewModel = ViewModelProviders.of(this).get(LibroViewModel::class.java)
 
         initRecyclerView(resources.configuration.orientation, view)
 
-        movieViewModel.getAll().observe(this, Observer { result ->
-            moviesAdapter.changeDataSet(result)
+        libroViewModel.getAll().observe(this, Observer { result ->
+            libroAdapter.changeDataSet(result)
         })
 
         return view
@@ -67,14 +67,14 @@ class MainListFragment: Fragment() {
         val linearLayoutManager = LinearLayoutManager(this.context)
         val recyclerview  = container.rv_list
 
-        moviesAdapter = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            LibroAdapter(movies = AppConstants.emptymovies, clickListener = { movie: LibroEntity -> listenerTool?.managePortraitItemClick(movie)})
+        libroAdapter = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            LibroAdapter(libros = AppConstants.emptybooks, clickListener = { libro: LibroEntity -> listenerTool?.managePortraitItemClick(libro)})
         }else {
-            LibroAdapter(movies = AppConstants.emptymovies, clickListener = { movie: LibroEntity -> listenerTool?.managedLandscapeItemClick(movie)})
+            LibroAdapter(libros = AppConstants.emptybooks, clickListener = { libro: LibroEntity -> listenerTool?.managedLandscapeItemClick(libro)})
         }
 
         recyclerview.apply {
-            adapter = moviesAdapter
+            adapter = libroAdapter
             setHasFixedSize(true)
             layoutManager = linearLayoutManager
         }
@@ -102,6 +102,6 @@ class MainListFragment: Fragment() {
         })
     }
 
-    private fun queryToDatabase(query: String) = movieViewModel.getBookByTitle("%$query%").observe(this,
-        Observer { queryResult -> moviesAdapter.changeDataSet(queryResult)})
+    private fun queryToDatabase(query: String) = libroViewModel.getBookByTitle("%$query%").observe(this,
+        Observer { queryResult -> libroAdapter.changeDataSet(queryResult)})
 }
