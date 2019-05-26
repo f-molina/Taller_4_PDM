@@ -86,6 +86,80 @@ abstract class AppDatabase : RoomDatabase() {
                 "1224", "Historia de guerra y dragones", "4", "56", true
             )
             libroDAO.insertLibro(libro)
+            
+            
+            libro = LibroEntity(
+                    "4", "El principito", "https://fotos00.laopiniondezamora.es/mmp/2018/04/06/690x278/el-principito.jpg", "La casa",
+                    "1255", "Historia de fantasía", "2", "1", true
+            )
+
+            libroDAO.insertLibro(libro)
+
+            libro = LibroEntity(
+                    "5", "El código Da Vinci", "https://mlstaticquic-a.akamaihd.net/libro-el-codigo-da-vinci-dan-brown-D_NQ_NP_871672-MLU29350479226_022019-F.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+
+
+
+            libro = LibroEntity(
+                    "6", "Romeo and Juliet", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a18fba25660183.56348cd307ca4.jpg", "La casa",
+                    "1255", "Historia de fantasía", "2", "1", true
+            )
+
+            libroDAO.insertLibro(libro)
+
+            libro = LibroEntity(
+                    "7", "Cumbres Borrascosas", "https://c8.alamy.com/compes/kretn8/cumbres-borrascosas-kretn8.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+
+
+
+            libro = LibroEntity(
+                    "8", "Orgullo y prejuicio", "https://i.pinimg.com/originals/a8/5b/61/a85b61b4e4387726779730b3b37b5c2e.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+
+
+            libro = LibroEntity(
+                    "9", "El alquimista", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Der_unsterbliche_Alchemyst_%28Michael_Scott%2C_2008%29.jpg/220px-Der_unsterbliche_Alchemyst_%28Michael_Scott%2C_2008%29.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+            libro = LibroEntity(
+                    "10", "La Odisea", "http://data.ecasals.net/img/04/g/9788498253351_04_g.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+
+            libro = LibroEntity(
+                    "11", "Percy Jackson", "https://imagessl4.casadellibro.com/a/l/t5/64/9788498386264.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+            libro = LibroEntity(
+                    "12", "Harry Potter", "https://imagessl4.casadellibro.com/a/l/t5/64/9788498386264.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+
+
+            libro = LibroEntity(
+                    "13", "La heredera", "https://static.megustaleer.com.ar/images/libros_200_x/9788416306497.jpg", "La casa",
+                    "1255", "Historia de suspenso y misterio", "2", "0", true
+            )
+            libroDAO.insertLibro(libro)
+            
         }
     }
 }
