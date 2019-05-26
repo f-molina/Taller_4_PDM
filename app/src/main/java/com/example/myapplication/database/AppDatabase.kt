@@ -74,19 +74,19 @@ abstract class AppDatabase : RoomDatabase() {
 
 
             var libro = LibroEntity(
-                "1", "La biblia", "caratula", "La casa",
+                "1", "La biblia", "https://porfirioflores.org/wp-content/uploads/2018/01/biblia.jpg", "La casa",
                 "123", "Historia de Dios", "1", "10", true
             )
             libroDAO.insertLibro(libro)
 
             libro = LibroEntity(
-                "2", "Sherlock Holmes", "caratula", "La casa",
+                "2", "Sherlock Holmes", "https://dg9aaz8jl1ktt.cloudfront.net/the_files/46589/std.jpg?1452597915", "La casa",
                 "1255", "Historia de detectives", "2", "1", false
             )
             libroDAO.insertLibro(libro)
 
             libro = LibroEntity(
-                "3", "GOT", "caratula", "La casa",
+                "3", "GOT", "https://www.thomann.de/pics/bdb/439871/13137706_800.jpg", "La casa",
                 "1224", "Historia de guerra y dragones", "4", "56", true
             )
             libroDAO.insertLibro(libro)
